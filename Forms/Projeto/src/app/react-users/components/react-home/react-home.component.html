@@ -1,0 +1,120 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Reactive Forms</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form action="#" id="main-form" (ngSubmit)="submit()" [formGroup]="personalData">
+                <div class="form-row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input type="text" matInput placeholder="Digite o seu nome" formControlName="name">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['name'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['name'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sobrenome</mat-label>
+                        <input type="text" matInput placeholder="Digite o seu sobrenome" autocomplete="false"
+                            formControlName="lastname">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['lastname'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['lastname'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input type="text" matInput placeholder="Digite o seu username" autocomplete="false"
+                            formControlName="username">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['username'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['username'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cpf</mat-label>
+                        <input type="number" matInput placeholder="Digite o seu Cpf" autocomplete="false"
+                            formControlName="cpf">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['cpf'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['cpf'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Endereco</mat-label>
+                        <input type="text" matInput placeholder="Digite o seu Endereco" autocomplete="false"
+                            formControlName="adress">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['adress'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['adress'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Complemento</mat-label>
+                        <input type="text" matInput placeholder="Digite se houver complemento" autocomplete="false"
+                            formControlName="comp">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Telefone</mat-label>
+                        <input type="number" matInput placeholder="Digite o seu Telefone" autocomplete="false"
+                            formControlName="tels">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['tels'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['tels'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field><br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Senha</mat-label>
+                        <input type="password" matInput placeholder="Digite a sua senha" autocomplete="false"
+                            formControlName="password">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['password'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['password'].getError('minlength')"></span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Confirme a Senha</mat-label>
+                        <input type="password" matInput placeholder="Digite a sua senha novamente" autocomplete="false"
+                            formControlName="confpassword">
+                        <mat-error>
+                            <span *ngIf="personalData.controls['confpassword'].getError('required')">
+                                Este campo é obrigatório
+                            </span>
+                            <span *ngIf="personalData.controls['confpassword'].getError('MustMatch')">Senhas não
+                                coincidem</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="form-row col">
+                        <button mat-raised-button type="submit" color="accent" class="grow"
+                            [disabled]="personalData.invalid">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
